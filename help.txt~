@@ -1,0 +1,2 @@
+gcc -c -o cpkluall.c cpkluall.o -lm
+fpc opendss

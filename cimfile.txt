@@ -1,0 +1,21 @@
+<cim:Terminal rdf:ID="220000206_T2">
+        <cim:Naming.name>301_T2</cim:Naming.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#曲江站\34.50千伏\CB_301"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#71004004000"/>
+</cim:Terminal>
+<cim:Terminal rdf:ID="221024059_T2">
+        <cim:Naming.name>3111_T2</cim:Naming.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#曲江站\34.50千伏\SW_3111"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#71004004000"/>
+</cim:Terminal>
+<cim:Terminal rdf:ID="221024060_T2">
+        <cim:Naming.name>3121_T2</cim:Naming.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#曲江站\34.50千伏\SW_3121"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#71004004000"/>
+</cim:Terminal>
+<cim:Terminal rdf:ID="221024061_T2">
+        <cim:Naming.name>3131_T2</cim:Naming.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#曲江站\34.50千伏\SW_3131"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#71004004000"/>
+</cim:Terminal>
+Disconnector

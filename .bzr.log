@@ -1,0 +1,350 @@
+
+this is a debug log for diagnosing/reporting problems in bzr
+you can delete or truncate this file, or include sections in
+bug reports to https://bugs.launchpad.net/bzr/+filebug
+
+Thu 2015-02-12 23:23:11 +0800
+0.070  bazaar version: 2.5.1
+0.070  bzr arguments: [u'branch', u'lp:~mysql/mysql-connector-cpp/trunk']
+0.074  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.076  looking for plugins in C:\Python27\lib\site-packages\bzrlib\plugins
+0.089  encoding stdout as sys.stdout encoding 'cp936'
+[15312] 2015-02-12 23:23:12.786 WARNING: Value "C:\Python27\cacert.pem" is not valid for "ssl.ca_certs"
+[15312] 2015-02-12 23:23:12.786 WARNING: No valid trusted SSL CA certificates file set. See 'bzr help ssl.ca_certs' for more information on setting trusted CAs.
+[15312] 2015-02-12 23:23:13.180 INFO: 
+See `bzr help ssl.ca_certs` for how to specify trusted CAcertificates.
+Pass -Ossl.cert_reqs=none to disable certificate verification entirely.
+
+1.585  Transferred: 0kB (0.0kB/s r:0kB w:0kB)
+1.595  Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 920, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 1131, in run_bzr
+    ret = run(*run_argv)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 673, in run_argv_aliases
+    return self.run(**all_cmd_args)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 695, in run
+    return self._operation.run_simple(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 136, in run_simple
+    self.cleanups, self.func, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 166, in _do_with_cleanups
+    result = func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\builtins.py", line 1438, in run
+    from_location)
+  File "C:\Python27\lib\site-packages\bzrlib\controldir.py", line 778, in open_tree_or_branch
+    controldir = klass.open(location)
+  File "C:\Python27\lib\site-packages\bzrlib\controldir.py", line 685, in open
+    t = _mod_transport.get_transport(base, possible_transports)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\__init__.py", line 1679, in get_transport
+    return get_transport_from_url(location_to_url(base), possible_transports)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\__init__.py", line 1601, in location_to_url
+    location = directories.dereference(location)
+  File "C:\Python27\lib\site-packages\bzrlib\directory_service.py", line 65, in dereference
+    return service().look_up(name, url)
+  File "C:\Python27\lib\site-packages\bzrlib\plugins\launchpad\lp_directory.py", line 68, in look_up
+    return self._resolve(url)
+  File "C:\Python27\lib\site-packages\bzrlib\plugins\launchpad\lp_directory.py", line 173, in _resolve
+    result = self._resolve_via_xmlrpc(path, url, _request_factory)
+  File "C:\Python27\lib\site-packages\bzrlib\plugins\launchpad\lp_directory.py", line 100, in _resolve_via_xmlrpc
+    result = resolve.submit(service)
+  File "C:\Python27\lib\site-packages\bzrlib\plugins\launchpad\lp_registration.py", line 271, in submit
+    self._authenticated)
+  File "C:\Python27\lib\site-packages\bzrlib\plugins\launchpad\lp_registration.py", line 194, in send_request
+    result = method(*method_params)
+  File "C:\Python27\lib\xmlrpclib.py", line 1233, in __call__
+    return self.__send(self.__name, args)
+  File "C:\Python27\lib\xmlrpclib.py", line 1591, in __request
+    verbose=self.__verbose
+  File "C:\Python27\lib\site-packages\bzrlib\plugins\launchpad\lp_registration.py", line 72, in request
+    response = self._opener.open(request)
+  File "C:\Python27\lib\urllib2.py", line 431, in open
+    response = self._open(req, data)
+  File "C:\Python27\lib\urllib2.py", line 449, in _open
+    '_open', req)
+  File "C:\Python27\lib\urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib2_wrappers.py", line 921, in https_open
+    return self.do_open(HTTPSConnection, request)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib2_wrappers.py", line 805, in do_open
+    headers)
+  File "C:\Python27\lib\httplib.py", line 1035, in _send_request
+    self.endheaders(body)
+  File "C:\Python27\lib\httplib.py", line 997, in endheaders
+    self._send_output(message_body)
+  File "C:\Python27\lib\httplib.py", line 850, in _send_output
+    self.send(msg)
+  File "C:\Python27\lib\httplib.py", line 812, in send
+    self.connect()
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib2_wrappers.py", line 467, in connect
+    self.connect_to_origin()
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib2_wrappers.py", line 492, in connect_to_origin
+    cert_reqs=cert_reqs, ca_certs=ca_certs)
+  File "C:\Python27\lib\ssl.py", line 891, in wrap_socket
+    ciphers=ciphers)
+  File "C:\Python27\lib\ssl.py", line 566, in __init__
+    self.do_handshake()
+  File "C:\Python27\lib\ssl.py", line 788, in do_handshake
+    self._sslobj.do_handshake()
+SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:581)
+
+1.598  return code 3
+
+Thu 2015-02-12 23:24:15 +0800
+0.061  bazaar version: 2.5.1
+0.062  bzr arguments: [u'-', u'Ossl.cert_reqs=none', u'branch', u'lp:~mysql/mysql-connector-cpp/trunk']
+0.065  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.066  looking for plugins in C:\Python27\lib\site-packages\bzrlib\plugins
+0.082  Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 920, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 1107, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "-"
+
+0.083  return code 3
+
+Thu 2015-02-12 23:24:22 +0800
+0.060  bazaar version: 2.5.1
+0.061  bzr arguments: [u'-Ossl.cert_reqs=none', u'branch', u'lp:~mysql/mysql-connector-cpp/trunk']
+0.064  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.064  looking for plugins in C:\Python27\lib\site-packages\bzrlib\plugins
+0.077  encoding stdout as sys.stdout encoding 'cp936'
+[13568] 2015-02-12 23:24:23.295 WARNING: Not checking SSL certificate for xmlrpc.launchpad.net
+[13568] 2015-02-12 23:24:24.707 WARNING: You have not informed bzr of your Launchpad ID, and you must do this to
+write to Launchpad or access private data.  See "bzr help launchpad-login".
+7.721  creating repository in file:///C:/%E8%BF%85%E9%9B%B7%E4%B8%8B%E8%BD%BD/trunk/.bzr/.
+8.133  Using fetch logic to copy between CHKInventoryRepository('http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/')(RepositoryFormat2a()) and CHKInventoryRepository('file:///C:/%E8%BF%85%E9%9B%B7%E4%B8%8B%E8%BD%BD/trunk/.bzr/repository/')(RepositoryFormat2a())
+8.134  fetching: <PendingAncestryResult heads:frozenset(['hemant.dangi@oracle.com-20141119132037-w6qruh5u7vde80jx']) repo:CHKInventoryRepository('http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/')>
+17.175  23 bytes left on the HTTP socket
+21.136  23 bytes left on the HTTP socket
+23.441  23 bytes left on the HTTP socket
+36.339  23 bytes left on the HTTP socket
+40.266  22 bytes left on the HTTP socket
+42.229  22 bytes left on the HTTP socket
+43.053  23 bytes left on the HTTP socket
+44.680  23 bytes left on the HTTP socket
+49.083  23 bytes left on the HTTP socket
+59.589  23 bytes left on the HTTP socket
+70.877  22 bytes left on the HTTP socket
+72.366  creating branch <bzrlib.branch.BzrBranchFormat7 object at 0x02839FD0> in file:///C:/%E8%BF%85%E9%9B%B7%E4%B8%8B%E8%BD%BD/trunk/
+73.780  created new branch BzrBranch7(file:///C:/%E8%BF%85%E9%9B%B7%E4%B8%8B%E8%BD%BD/trunk/)
+73.805  opening working tree 'C:/\xe8\xbf\x85\xe9\x9b\xb7\xe4\xb8\x8b\xe8\xbd\xbd/trunk'
+[13568] 2015-02-12 23:25:37.150 INFO: Branched 998 revisions.
+74.571  Transferred: 6706kB (93.8kB/s r:6690kB w:16kB)
+74.571  return code 0
+
+Thu 2015-02-12 23:43:19 +0800
+0.076  bazaar version: 2.5.1
+0.077  bzr arguments: [u'-Ossl.cert_reqs=none', u'branch', u'lp:~mysql/mysql-connector-cpp/trunk']
+0.087  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.087  looking for plugins in C:\Python27\lib\site-packages\bzrlib\plugins
+0.115  encoding stdout as sys.stdout encoding 'cp936'
+[17116] 2015-02-12 23:43:20.217 WARNING: Not checking SSL certificate for xmlrpc.launchpad.net
+[17116] 2015-02-12 23:43:21.450 WARNING: You have not informed bzr of your Launchpad ID, and you must do this to
+write to Launchpad or access private data.  See "bzr help launchpad-login".
+7.427  creating repository in file:///C:/trunk/.bzr/.
+7.822  Using fetch logic to copy between CHKInventoryRepository('http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/')(RepositoryFormat2a()) and CHKInventoryRepository('file:///C:/trunk/.bzr/repository/')(RepositoryFormat2a())
+7.823  fetching: <PendingAncestryResult heads:frozenset(['hemant.dangi@oracle.com-20141119132037-w6qruh5u7vde80jx']) repo:CHKInventoryRepository('http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/')>
+11.172  Transferred: 73kB (9.0kB/s r:68kB w:5kB)
+11.179  Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 920, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 1131, in run_bzr
+    ret = run(*run_argv)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 673, in run_argv_aliases
+    return self.run(**all_cmd_args)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 695, in run
+    return self._operation.run_simple(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 136, in run_simple
+    self.cleanups, self.func, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 166, in _do_with_cleanups
+    result = func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\builtins.py", line 1493, in run
+    source_branch=br_from)
+  File "C:\Python27\lib\site-packages\bzrlib\bzrdir.py", line 366, in sprout
+    create_tree_if_local=create_tree_if_local)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 132, in run
+    self.cleanups, self.func, self, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 166, in _do_with_cleanups
+    result = func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\bzrdir.py", line 416, in _sprout
+    result_repo.fetch(source_repository, fetch_spec=fetch_spec)
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 1267, in fetch
+    find_ghosts=find_ghosts, fetch_spec=fetch_spec)
+  File "C:\Python27\lib\site-packages\bzrlib\decorators.py", line 218, in write_locked
+    result = unbound(self, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 2584, in fetch
+    find_ghosts=find_ghosts)
+  File "C:\Python27\lib\site-packages\bzrlib\fetch.py", line 77, in __init__
+    self.__fetch()
+  File "C:\Python27\lib\site-packages\bzrlib\fetch.py", line 104, in __fetch
+    self._fetch_everything_for_search(search_result)
+  File "C:\Python27\lib\site-packages\bzrlib\fetch.py", line 132, in _fetch_everything_for_search
+    stream, from_format, [])
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 2042, in insert_stream
+    src_format, is_resume)
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 2126, in insert_stream_without_locking
+    self.target_repo.revisions.insert_record_stream(substream)
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1643, in insert_record_stream
+    for _ in self._insert_record_stream(stream, random_id=False):
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1733, in _insert_record_stream
+    for record in stream:
+  File "C:\Python27\lib\site-packages\bzrlib\repofmt\groupcompress_repo.py", line 1254, in wrap_and_count
+    for record in stream:
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1456, in get_record_stream
+    orig_keys, ordering, include_delta_closure):
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1609, in _get_remaining_record_stream
+    for factory in batcher.yield_factories():
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1170, in yield_factories
+    block_read_memo, block = blocks.next()
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1412, in _get_blocks
+    zdata = raw_records.next()
+  File "C:\Python27\lib\site-packages\bzrlib\repofmt\pack_repo.py", line 2043, in get_raw_records
+    for names, read_func in reader.iter_records():
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 279, in iter_records
+    self._read_format()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 320, in _read_format
+    format = self._read_line()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 247, in _read_line
+    line = self._source.readline()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 210, in readline
+    self._next()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 195, in _next
+    offset, data = self.readv_result.next()
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\__init__.py", line 241, in _readv
+    for cur_coal, rfile in self._coalesce_readv(relpath, coalesced):
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\__init__.py", line 333, in _coalesce_readv
+    for c, rfile in get_and_yield(relpath, ranges):
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\__init__.py", line 296, in get_and_yield
+    code, rfile = self._get(relpath, coalesced)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib.py", line 120, in _get
+    response = self._perform(request)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib.py", line 91, in _perform
+    is_permanent=(code == 301))
+RedirectRequested: http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/packs/3c88996c854595bebac29aacb75d0917.pack is redirected to http://111.13.110.36:80/videoplayer/3c88996c854595bebac29aacb75d0917.pack?ich_u_r_i=461dabc33a207b0851ac9bf4b8d44c74&ich_s_t_a_r_t=0&ich_e_n_d=0&ich_k_e_y=1545028912751563452419&ich_t_y_p_e=1&ich_d_i_s_k_i_d=1&ich_s_e_q=1868499257&ich_u_n_i_t=1
+
+11.180  return code 3
+
+Thu 2015-02-12 23:44:04 +0800
+0.060  bazaar version: 2.5.1
+0.060  bzr arguments: [u'-Ossl.cert_reqs=none', u'branch', u'lp:~mysql/mysql-connector-cpp/trunk']
+0.064  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.064  looking for plugins in C:\Python27\lib\site-packages\bzrlib\plugins
+0.077  encoding stdout as sys.stdout encoding 'cp936'
+[ 3036] 2015-02-12 23:44:05.141 WARNING: Not checking SSL certificate for xmlrpc.launchpad.net
+[ 3036] 2015-02-12 23:44:06.365 WARNING: You have not informed bzr of your Launchpad ID, and you must do this to
+write to Launchpad or access private data.  See "bzr help launchpad-login".
+6.825  creating repository in file:///C:/trunk/trunk/.bzr/.
+7.233  Using fetch logic to copy between CHKInventoryRepository('http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/')(RepositoryFormat2a()) and CHKInventoryRepository('file:///C:/trunk/trunk/.bzr/repository/')(RepositoryFormat2a())
+7.235  fetching: <PendingAncestryResult heads:frozenset(['hemant.dangi@oracle.com-20141119132037-w6qruh5u7vde80jx']) repo:CHKInventoryRepository('http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/')>
+10.722  Transferred: 73kB (8.6kB/s r:68kB w:5kB)
+10.733  Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 920, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 1131, in run_bzr
+    ret = run(*run_argv)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 673, in run_argv_aliases
+    return self.run(**all_cmd_args)
+  File "C:\Python27\lib\site-packages\bzrlib\commands.py", line 695, in run
+    return self._operation.run_simple(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 136, in run_simple
+    self.cleanups, self.func, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 166, in _do_with_cleanups
+    result = func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\builtins.py", line 1493, in run
+    source_branch=br_from)
+  File "C:\Python27\lib\site-packages\bzrlib\bzrdir.py", line 366, in sprout
+    create_tree_if_local=create_tree_if_local)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 132, in run
+    self.cleanups, self.func, self, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\cleanup.py", line 166, in _do_with_cleanups
+    result = func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\bzrdir.py", line 416, in _sprout
+    result_repo.fetch(source_repository, fetch_spec=fetch_spec)
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 1267, in fetch
+    find_ghosts=find_ghosts, fetch_spec=fetch_spec)
+  File "C:\Python27\lib\site-packages\bzrlib\decorators.py", line 218, in write_locked
+    result = unbound(self, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 2584, in fetch
+    find_ghosts=find_ghosts)
+  File "C:\Python27\lib\site-packages\bzrlib\fetch.py", line 77, in __init__
+    self.__fetch()
+  File "C:\Python27\lib\site-packages\bzrlib\fetch.py", line 104, in __fetch
+    self._fetch_everything_for_search(search_result)
+  File "C:\Python27\lib\site-packages\bzrlib\fetch.py", line 132, in _fetch_everything_for_search
+    stream, from_format, [])
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 2042, in insert_stream
+    src_format, is_resume)
+  File "C:\Python27\lib\site-packages\bzrlib\vf_repository.py", line 2126, in insert_stream_without_locking
+    self.target_repo.revisions.insert_record_stream(substream)
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1643, in insert_record_stream
+    for _ in self._insert_record_stream(stream, random_id=False):
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1733, in _insert_record_stream
+    for record in stream:
+  File "C:\Python27\lib\site-packages\bzrlib\repofmt\groupcompress_repo.py", line 1254, in wrap_and_count
+    for record in stream:
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1456, in get_record_stream
+    orig_keys, ordering, include_delta_closure):
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1609, in _get_remaining_record_stream
+    for factory in batcher.yield_factories():
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1170, in yield_factories
+    block_read_memo, block = blocks.next()
+  File "C:\Python27\lib\site-packages\bzrlib\groupcompress.py", line 1412, in _get_blocks
+    zdata = raw_records.next()
+  File "C:\Python27\lib\site-packages\bzrlib\repofmt\pack_repo.py", line 2043, in get_raw_records
+    for names, read_func in reader.iter_records():
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 279, in iter_records
+    self._read_format()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 320, in _read_format
+    format = self._read_line()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 247, in _read_line
+    line = self._source.readline()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 210, in readline
+    self._next()
+  File "C:\Python27\lib\site-packages\bzrlib\pack.py", line 195, in _next
+    offset, data = self.readv_result.next()
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\__init__.py", line 241, in _readv
+    for cur_coal, rfile in self._coalesce_readv(relpath, coalesced):
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\__init__.py", line 333, in _coalesce_readv
+    for c, rfile in get_and_yield(relpath, ranges):
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\__init__.py", line 296, in get_and_yield
+    code, rfile = self._get(relpath, coalesced)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib.py", line 120, in _get
+    response = self._perform(request)
+  File "C:\Python27\lib\site-packages\bzrlib\transport\http\_urllib.py", line 91, in _perform
+    is_permanent=(code == 301))
+RedirectRequested: http://bazaar.launchpad.net/~mysql/mysql-connector-cpp/trunk/.bzr/repository/packs/3c88996c854595bebac29aacb75d0917.pack is redirected to http://111.13.110.36:80/videoplayer/3c88996c854595bebac29aacb75d0917.pack?ich_u_r_i=461dabc33a207b0851ac9bf4b8d44c74&ich_s_t_a_r_t=0&ich_e_n_d=0&ich_k_e_y=1545028912751563462426&ich_t_y_p_e=1&ich_d_i_s_k_i_d=1&ich_s_e_q=1868502829&ich_u_n_i_t=1
+
+10.734  return code 3
+
+Mon 2015-03-30 11:10:57 +0800
+0.192  bazaar version: 2.5.1
+0.193  bzr arguments: [u'help']
+0.198  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.198  looking for plugins in C:\Python27\lib\site-packages\bzrlib\plugins
+0.227  encoding stdout as sys.stdout encoding 'cp936'
+0.234  encoding stdout as sys.stdout encoding 'cp936'
+0.241  Transferred: 0kB (0.0kB/s r:0kB w:0kB)
+0.241  return code 0
+
+Fri 2015-04-03 14:32:40 +0800
+0.125  bazaar version: 2.5.1
+0.125  bzr arguments: [u'explorer']
+0.125  looking for plugins in C:/Users/tonyju/AppData/Roaming/bazaar/2.0/plugins
+0.125  looking for plugins in C:/Program Files (x86)/Bazaar/plugins
+0.203  encoding stdout as osutils.get_user_encoding() 'gbk'
+0.531  Deprecated function called
+Called from:
+  File "bzrlib\lazy_import.pyo", line 200, in _import
+  File "C:/Program Files (x86)/Bazaar/plugins\explorer\lib\explorer.py", line 32, in <module>
+  File "C:/Program Files (x86)/Bazaar/plugins\explorer\lib\desktop_env.py", line 158, in <module>
+0.812  Deprecated method called
+Called from:
+  File "C:/Program Files (x86)/Bazaar/plugins\explorer\lib\explorer.py", line 166, in __init__
+  File "C:/Program Files (x86)/Bazaar/plugins\explorer\lib\explorer.py", line 258, in _refresh_user_configuration
+  File "C:/Program Files (x86)/Bazaar/plugins\explorer\lib\explorer.py", line 265, in get_default_editor
+0.812  loading explorer extensions for clothes ['Bazaar support', 'Register on Launchpad']
+0.812  explorer extensions provided by the colo plugin in C:/Program Files (x86)/Bazaar/plugins/colo/explorer
+12.065  return code 0

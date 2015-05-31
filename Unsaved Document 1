@@ -1,0 +1,28 @@
+cs *csz_spalloc (int m, int n, int nzmax, int values, int triplet)
+{
+    cs *A = cs_calloc (1, sizeof (cs));    /* allocate the cs struct */
+    if (!A) return (NULL);		    /* out of memory */
+    A->m = m;				    /* define dimensions and nzmax */
+    A->n = n;
+    A->nzmax = nzmax = CS_MAX (nzmax, 1);
+    A->nz = triplet ? 0 : -1;		    /* allocate triplet or comp.col */
+    A->p = cs_malloc (triplet ? nzmax : n+1, sizeof (int));
+    A->i = cs_malloc (nzmax, sizeof (int));
+    A->x = values ? cs_malloc (2*nzmax, sizeof (double)) : NULL;
+    return ((!A->p || !A->i || (values && !A->x)) ? cs_spfree (A) : A);
+}
+
+/* allocate a sparse matrix (triplet form or compressed-column form) */
+cs *cs_spalloc (int m, int n, int nzmax, int values, int triplet)
+{
+    cs *A = cs_calloc (1, sizeof (cs)) ;    /* allocate the cs struct */
+    if (!A) return (NULL) ;		    /* out of memory */
+    A->m = m ;				    /* define dimensions and nzmax */
+    A->n = n ;
+    A->nzmax = nzmax = CS_MAX (nzmax, 1) ;
+    A->nz = triplet ? 0 : -1 ;		    /* allocate triplet or comp.col */
+    A->p = cs_malloc (triplet ? nzmax : n+1, sizeof (int)) ;
+    A->i = cs_malloc (nzmax, sizeof (int)) ;
+    A->x = values ? cs_malloc (nzmax, sizeof (double)) : NULL ;
+    return ((!A->p || !A->i || (values && !A->x)) ? cs_spfree (A) : A) ;
+}
